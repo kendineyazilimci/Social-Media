@@ -16,8 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost/ipvt2/public';
-
+    public string $baseURL = 'http://localhost/PHPVTPROJE/public/';
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
      * If you want to accept multiple Hostnames, set this.
@@ -199,4 +198,12 @@ class App extends BaseConfig
      * @see http://www.w3.org/TR/CSP/
      */
     public bool $CSPEnabled = false;
+    public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'; // Oturum sürücüsü
+    public $sessionCookieName = 'ci_session'; // Oturum çerezi adı
+    public $sessionExpiration = 7200; // Oturumun geçerlilik süresi (saniye olarak)
+    public $sessionSavePath = WRITEPATH . 'session'; // Oturum dosyalarının kaydedileceği yer
+    public $sessionMatchIP = false; // IP adresi ile eşleşme kontrolü
+    public $sessionTimeToUpdate = 300; // Oturum kimliği yenileme süresi
+    public $sessionRegenerateDestroy = false; // Eski oturumları yok etme
+
 }

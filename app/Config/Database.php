@@ -27,12 +27,12 @@ class Database extends Config
      * @var array<string, mixed>
      */
     public array $default = [
-        'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => '',
-        'DBDriver'     => 'MySQLi',
+        'dsn'          => 'mongodb+srv://ozan:1234@ozan.zgre1.mongodb.net/?retryWrites=true&w=majority&appName=Ozan',
+        'hostname'     => 'mongodb+srv://ozan.zgre1.mongodb.net',
+        'username'     => 'ozan',
+        'password'     => '1234',
+        'database'     => 'ilkDatabaseDeneme',
+        'DBDriver'     => 'MongoDB',
         'DBPrefix'     => '',
         'pConnect'     => false,
         'DBDebug'      => true,
@@ -43,7 +43,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => 27017,
         'numberNative' => false,
     ];
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers\Backend;
+namespace app\Views\Admin\CRUD;
 
 use CodeIgniter\Controller;
 use MongoDB\Client;
@@ -9,39 +9,44 @@ class deleteUser extends Controller
 {
     public function deleteUser()
     {
-
         $uri = "mongodb+srv://OzanAdmin:1234@ozan.zgre1.mongodb.net/?retryWrites=true&w=majority&appName=Ozan";
         $client = new Client($uri);
-        $vt = $this->request->getPost('vt');
-
+        $vt = $_POST['vt'] ?? null;
 
         if ($vt == "Deneme") {
             $collection = $client->selectDatabase('ilkDatabaseDeneme')->selectCollection('users');
-        } else if ($vt == "Gerçek") {
+        } elseif ($vt == "Gerçek") {
             $collection = $client->selectDatabase('Kullanıcılar')->selectCollection('Users');
         } else {
             echo "Hatalı Veritabanı Adı";
+            return;
         }
 
         try {
-            $filter = ['name' => $this->request->getPost('name')];
-            $filter2 = ['surname' => $this->request->getPost('surname')];
-            $filter3 = ['age' => (int) $this->request->getPost('age')];
-            $filter4 = ['tel' => (int) $this->request->getPost('tel')];
-            $filter5 = ['email' => $this->request->getPost('email')];
-            $deleteUser = $collection->deleteMany($filter, $filter2, $filter3, $filter4, $filter5);
-            if($deleteUser->getDeletedCount() > 0){
-                echo "Kullanıcı başarıyla silindi. Silinen kullanıcı sayısı: " . $deleteUser->getDeletedCount() ."\n";
-            }
-            else{echo "Kullanıcı bulunamadı.";
+            $filters = [
+                'name' => $_POST['name'] ?? null,
+                'surname' => $_POST['surname'] ?? null,
+                'age' => (int) ($_POST['age'] ?? 0),
+                'tel' => (int) ($_POST['tel'] ?? 0),
+                'email' => $_POST['email'] ?? null
+            ];
+
+            // Filtrede null olmayan değerleri topla
+            $filteredData = array_filter($filters, fn($value) => !is_null($value));
+            
+            // Filtreli veriyi kullanarak kullanıcıları sil
+            $deleteUser = $collection->deleteMany($filteredData);
+            
+            if ($deleteUser->getDeletedCount() > 0) {
+                echo "Kullanıcı başarıyla silindi. Silinen kullanıcı sayısı: " . $deleteUser->getDeletedCount() . "\n";
+            } else {
+                echo "Kullanıcı bulunamadı.";
             }
         } catch (Exception $e) {
-            // Hata mesajı
             printf("Hata: %s\n", $e->getMessage());
         }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="tr">
@@ -76,20 +81,3 @@ class deleteUser extends Controller
     </form>
 </body>
 </html>
-
-<?php
-namespace App\Controllers\Backend;
-
-use CodeIgniter\Controller;
-use MongoDB\Client;
-use Exception;
-
-class DeleteUser extends Controller
-{
-    public function deleteuser()
-    {
-
-     echo view('Admin/CRUD/DeleteUser');
-    }
-}
-?>

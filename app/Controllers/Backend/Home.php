@@ -1,16 +1,36 @@
 <?php
 namespace App\Controllers\Backend;
 use App\Controllers\BaseController;
+use App\Helpers\SessionManager;
+
 
 class Home extends BaseController
 {
     public function index()
     {
-        echo view ('Frontend/header');
-        echo view ('Frontend/homecontent');
-        echo view ('Frontend/footer');
-        echo view ('Frontend/sidebar');
+        // CodeIgniter oturum kütüphanesi
+        $session = session();
+
+        $output = view('headerfooter/header') . view('anasayfa/homecontent');
+
+        // Oturum bilgilerini kontrol et
+        if ($session->has('last_activity')) {
+            $sessionLifetime = ini_get("session.gc_maxlifetime");
+            $remainingTime = $sessionLifetime - (time() - $session->get('last_activity'));
+
+            $output .= "<pre>";
+            $output .= "Session Data: " . print_r($session->get(), true) . "<br>";
+            $output .= "Session Remaining Time: " . $remainingTime . " seconds<br>";
+            $output .= "</pre>";
+        } else {
+            $output .= "<p>Oturum başlatılmamış veya sona ermiş.</p>";
+        }
+
+        $output .= view('headerfooter/footer') . view('headerfooter/sidebar');
+
+        return $output;
     }
+
 }
 ?>
 <!DOCTYPE html>
@@ -31,15 +51,13 @@ class Home extends BaseController
         const homecontent = document.getElementById('homecontent');
         const toggleButton = document.querySelector('.toggle-btn');
 
-        // Sidebar açma/kapatma
         sidebar.classList.toggle('open');
         headerRight.classList.toggle('shifted');
         footerRight.classList.toggle('shifted');
         homecontent.classList.toggle('shifted');
 
-        // Butonun durumunu güncelle
-        toggleButton.classList.toggle('open'); // 'open' sınıfını ekle veya kaldır
-        toggleButton.textContent = toggleButton.classList.contains('open') ? '✖' : '☰'; // Buton metnini değiştir
+        toggleButton.classList.toggle('open'); 
+        toggleButton.textContent = toggleButton.classList.contains('open') ? '✖' : '☰';
     }
 </script>
 </body>

@@ -5,16 +5,23 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-    $routes->match(['get', 'post'],'/', 'Backend\Home::index');
-    $routes->match(['get','post'],'/insertuser', 'Backend\UserController::addUser');
-    $routes->match(['get','post'],'/queryuser', 'Backend\UserController::queryUser');
-    $routes->match(['get','post'],'/updateuser', 'Backend\UserController::updateUser');
-    $routes->match(['get','post'],'/deleteuser', 'Backend\DeleteUser::deleteUser');
+
+$routes->match(['get','post'],'/anasayfa', [Home::class, 'index']);
+
+$routes->match(['get', 'post'], 'giriss', [SessionController::class, 'index']);
 
 
-    $routes->group('user', static function ($routes) {
-        $routes->get('liste', 'DenemeDosyaları\Liste::listem');
-        $routes->get('login', 'Backend\Auth::login');
-        $routes->get('logout', 'Backend\Auth::logout');
-    });
+$routes->match(['get', 'post'], 'giris', [LoginController::class, 'giris']);
+$routes->match(['get', 'post'], 'uyelik', [LoginController::class, 'uyelik']);
+$routes->match(['get', 'post'], 'cikis', [LoginController::class, 'cikis']);
+
+$routes->group('admin');{
+    $routes->match(['get','post'],'admin', [AdminController::class, 'index']);
+    $routes->match(['get','post'],'admin/crud', [AdminController::class, 'index']);
+    $routes->match(['get','post'],'admin/deleteuser', [DeleteUser::class, 'deleteuser']);
+    $routes->match(['get','post'],'admin/insertuser', [InsertUser::class, 'insertuser']);
+    $routes->match(['get','post'],'admin/queryuser', [QueryUser::class, 'queryuser']);
+    $routes->match(['get','post'],'admin/updateuser', [UpdateUser::class, 'updateuser']);
+    $routes->match(['get','post'],'admin/site', [AdminController::class, 'index']);};
+
 

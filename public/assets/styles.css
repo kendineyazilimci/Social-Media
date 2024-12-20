@@ -3,8 +3,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
-
 .header {
     background-color: #f1f1f1;
     padding: 10px;
@@ -71,8 +69,6 @@ body {
     }
 }
 
-
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -118,17 +114,14 @@ body {
 }
 
 
-
 .homecontent {
     padding: 80px 20px; /* Header'a yer açmak için üst padding */
     text-align: center;
 }
-
 .homecontent h1 {
     font-size: 100px;
     color: #333;
 }
-
 
 
 .footer {
@@ -142,24 +135,26 @@ body {
     left: 0;
     width: 100%;
     height: 50px;
-    z-index: 998;
+    z-index: 999;
     transition: transform 0.3s ease;
 }
-.footer-left, .footer-right {
+.footer-left{
     display: flex;
     align-items: center;
 }
 .footer-right {
-    float: right;
-    width: 250px;
-    padding: 10px;    
-    transition: transform 0.3s ease; /* Sidebar ile birlikte hareket eder */
+    white-space: nowrap;
+    margin-right: 60px;
+    transition: transform 0.3s ease;
 }
 .footer a {
+    white-space: nowrap;
+    width: 100px;
     text-decoration: none;
     color: black;
     font-size: 16px;
-    padding: 5px 10px;
+    padding: 20px;
+    display: inline-block;
 }
 .footer a:hover {
     background-color: #ddd;
@@ -167,13 +162,12 @@ body {
 }
 
 
-
 .toggle-btn {
     position: fixed;
     top: 13px;
     right: 15px;
-    width: 50px; /* Butonun genişliği */
-    height: 50px; /* Butonun yüksekliği */
+    width: 50px; 
+    height: 50px;
     background-color: #333;
     color: white;
     border: none;
@@ -181,35 +175,33 @@ body {
     font-size: 25px;
     cursor: pointer;
     z-index: 1000;
-    border-radius: 15px; /* Kenarları yumuşak yapmak için artırdık */
-    transition: background-color 0.3s, transform 0.3s, border-radius 0.3s; /* Geçiş efekti */
-    display: flex; /* Flexbox kullan */
-    justify-content: center; /* Yatay ortala */
-    align-items: center; /* Dikey ortala */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Gölge ekle */
+    border-radius: 15px;
+    transition: background-color 0.3s, transform 0.3s, border-radius 0.3s;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
 }
 .toggle-btn.open {
-    background-color: #f00; /* Açıkken arka plan rengini değiştir */
-    transform: rotate(90deg); /* 90 derece döndür ve büyüt */
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* Gölge ekle */
-    border-radius: 15px; /* Kenarları yumuşak yap */
+    background-color: #f00; 
+    transform: rotate(90deg);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+    border-radius: 15px;
 }
 .toggle-btn:focus {
-    outline: none; /* Odaklanma sınırını kaldır */
+    outline: none;
 }
 .toggle-icon {
-    color: white; /* Çarpı rengi */
-    font-size: 24px; /* Çarpı boyutu */
-    position: absolute; /* Mutlak pozisyon */
-    top: 50%; /* Dikey ortalama */
-    left: 50%; /* Yatay ortalama */
-    transform: translate(-50%, -50%); /* Tam ortalamak için kaydır */
+    color: white; 
+    font-size: 24px; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
 }
 .shifted {
-    transform: translateX(-250px); /* Sidebar açıldığında sağdaki elemanları kaydırır */
+    transform: translateX(-260px); 
 }
-
-
 
 @media screen and (max-width: 500px) {
     .header, .footer {
