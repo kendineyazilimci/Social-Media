@@ -1,8 +1,7 @@
 <?php
-namespace App\Controllers\Backend;
-use App\Controllers\BaseController;
-use App\Helpers\SessionManager;
+namespace App\Controllers;
 
+use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
@@ -14,13 +13,10 @@ class Home extends BaseController
         $output = view('headerfooter/header') . view('anasayfa/homecontent');
 
         // Oturum bilgilerini kontrol et
-        if ($session->has('last_activity')) {
-            $sessionLifetime = ini_get("session.gc_maxlifetime");
-            $remainingTime = $sessionLifetime - (time() - $session->get('last_activity'));
-
+        if ($session->has('email')) {
             $output .= "<pre>";
             $output .= "Session Data: " . print_r($session->get(), true) . "<br>";
-            $output .= "Session Remaining Time: " . $remainingTime . " seconds<br>";
+            $output .= "Kullanıcı Email: " . $session->get('email') . "<br>";
             $output .= "</pre>";
         } else {
             $output .= "<p>Oturum başlatılmamış veya sona ermiş.</p>";
@@ -30,8 +26,8 @@ class Home extends BaseController
 
         return $output;
     }
-
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

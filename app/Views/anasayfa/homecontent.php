@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="homecontent" id="homecontent">
-    
+    <h1>Burası Kullanılıyor</h1>
 </body>
 </html>

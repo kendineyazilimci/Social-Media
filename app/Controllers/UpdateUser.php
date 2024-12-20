@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers\Backend;
+namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use MongoDB\Client;

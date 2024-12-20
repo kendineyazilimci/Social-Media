@@ -1,6 +1,5 @@
 <?php
-namespace App\Controllers\Backend;
-use App\Helpers\SessionManager;
+namespace App\Controllers;
 use App\Controllers\BaseController;
 use MongoDB\Client;
 use Exception;
@@ -25,8 +24,8 @@ class LoginController extends BaseController
                     throw new Exception("MongoDB Bağlantı Hatası: " . $e->getMessage());
                 }
     
-                $database = $client->selectDatabase("ilkDatabaseDeneme");
-                $collection = $database->selectCollection('users');
+                $database = $client->selectDatabase("Kullanıcılar");
+                $collection = $database->selectCollection('KULLANICILAR');
     
                 $email = $this->request->getPost('email');
                 $sifre = $this->request->getPost('sifre');
@@ -41,13 +40,13 @@ class LoginController extends BaseController
                 ];
     
                 $result = $collection->findOne($userDataQuery);
-    
+                if (!$result) {
+                    echo "Yanlış Email veya Şifre. <br>";
+                }
                 if ($result) {
-                    $_SESSION['email'] = $email;
-    
+                    session()->set('email', $email);
+                    session()->set('sifre', $sifre);
                     return redirect()->to('/anasayfa');
-                } else {
-                    throw new Exception("Kullanıcı bulunamadı.");
                 }
             } catch (Exception $e) {
                 return view('loginUyelikExit/login', [
@@ -55,8 +54,6 @@ class LoginController extends BaseController
                 ]);
             }
         }
-    
-        // Giriş sayfasını yükle
         return view('loginUyelikExit/login');
     }
     
@@ -73,8 +70,8 @@ class LoginController extends BaseController
                 }
 
                 $client = new Client($uri);
-                $database = $client->selectDatabase("ilkDatabaseDeneme");
-                $collection = $database->selectCollection('users');
+                $database = $client->selectDatabase("Kullanıcılar");
+                $collection = $database->selectCollection('KULLANICILAR');
 
                 $userDataInsert = [
                     'name' => $this->request->getPost('name'),
@@ -106,7 +103,9 @@ class LoginController extends BaseController
 
     public function cikis()
     {
-        $uri = getenv('MONGODB_URI');
+        session()->destroy();
+
+        return redirect()->to('/anasayfa');
         return view('loginUyelikExit/exit');
     }
 }

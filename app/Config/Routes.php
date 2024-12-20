@@ -6,14 +6,12 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->match(['get','post'],'/anasayfa', [Home::class, 'index']);
-
-$routes->match(['get', 'post'], 'giriss', [SessionController::class, 'index']);
+$routes->match(['get','post'],'/anasayfa', [\App\Controllers\Home::class, 'index']);
 
 
-$routes->match(['get', 'post'], 'giris', [LoginController::class, 'giris']);
-$routes->match(['get', 'post'], 'uyelik', [LoginController::class, 'uyelik']);
-$routes->match(['get', 'post'], 'cikis', [LoginController::class, 'cikis']);
+$routes->match(['get', 'post'], 'giris', [\App\Controllers\LoginController::class, 'giris']);
+$routes->match(['get', 'post'], 'uyelik', [\App\Controllers\LoginController::class, 'uyelik']);
+$routes->match(['get', 'post'], 'cikis', [\App\Controllers\LoginController::class, 'cikis']);
 
 $routes->group('admin');{
     $routes->match(['get','post'],'admin', [AdminController::class, 'index']);
