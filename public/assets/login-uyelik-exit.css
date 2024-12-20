@@ -1,0 +1,222 @@
+@keyframes colorChange {
+    25% { border-color: rgba(130, 130, 130); }
+    25% { border-color: rgba(0, 0, 0, 0.728); }
+    25% { border-color: rgba(130, 130, 130); }
+    25% { border-color: rgba(0, 0, 0, 0.728); }
+}
+.logindiv
+{
+    position: absolute;
+    width: 40%;
+    height: 45%;
+    left: 27%;
+    top: 22%;
+    background-color: rgba(169, 169, 169, 0.447);
+    border: 50px;
+    border-radius: 50px;
+    padding: 40px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgba(92, 92, 92, 0.476);
+    transition: all 0.3s ease-in-out;
+    animation: colorChange 5s infinite;
+}
+.logindiv h2 
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    text-align: center; 
+    width: 700px;
+    left: 20%;
+    top: 0%;
+}
+.logindiv h3 
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    margin-right: 10px;
+    text-align: right; 
+    width: 25%;
+    top: 10%;
+}
+.logindiv input{
+    width: 300px;
+    font-size: 20px;
+    border-radius: 40px;
+    border: 0px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.loginbuton
+{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 32.5%;
+    top: 65%;
+    background-color: rgba(49, 49, 49, 0.809);
+    border: 50px;
+    border-radius: 10px;
+    padding: 50px; 
+    text-align: center;
+    font-size: 35px;
+    line-height: 0px;
+    color: rgb(255, 255, 255);
+}
+.buton:hover
+{
+    background-color: rgba(43, 43, 43, 0.9);
+}
+.buton:active
+{
+    background-color: rgb(0, 0, 0);
+}
+.uyelikdiv
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 22%;
+    top: 15%;
+    background-color: rgba(169, 169, 169, 0.447);
+    border-radius: 50px;
+    padding: 50px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgba(92, 92, 92, 0.476);
+    transition: all 0.3s ease-in-out;
+    animation: colorChange 5s infinite;
+}
+.form-row {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-row h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    margin-right: 10px;
+    text-align: right; 
+    width: 25%;
+    top: 10%;
+}
+.uyelikdiv h2
+{
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    left: 20%;
+    top: 0%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+.uyelikdiv input{
+    width: 300px;
+    font-size: 20px;
+    border-radius: 40px;
+    border: 0px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.uyelikbuton
+{
+    position: absolute;
+    width: 250px;
+    height: 50px;
+    left: 40%;
+    top: 78%;
+    background-color: rgba(49, 49, 49, 0.809);
+    border: 50px;
+    border-radius: 10px;
+    padding: 50px; 
+    text-align: center;
+    font-size: 35px;
+    line-height: 0px;
+    color: rgb(255, 255, 255);
+}
+.uyelikbuton:hover
+{
+    background-color: rgba(43, 43, 43, 0.9);
+}
+.uyelikbuton:active
+{
+    background-color: rgb(0, 0, 0);
+}
+
+.cikisdiv{
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    left: 31%;
+    top: 22%;
+    background-color: rgba(169, 169, 169, 0.447);
+    border: 50px;
+    border-radius: 50px;
+    padding: 50px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgba(92, 92, 92, 0.476);
+    transition: all 0.3s ease-in-out;
+    animation: colorChange 5s infinite;
+}
+
+.cikisbuton{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 54%;
+    top: 55%;
+    background-color: rgba(49, 49, 49, 0.809);
+    border: 50px;
+    border-radius: 10px;
+    padding: 50px; 
+    text-align: center;
+    font-size: 35px;
+    line-height: 0px;
+    color: rgb(255, 255, 255);
+}
+.cikisbuton:hover{
+    background-color: rgba(43, 43, 43, 0.9);
+}
+.cikisbuton:active{
+    background-color: rgb(0, 0, 0);
+}
+.cikisiptalbuton{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 13%;
+    top: 55%;
+    background-color: rgba(49, 49, 49, 0.809);
+    border: 50px;
+    border-radius: 10px;
+    padding: 50px; 
+    text-align: center;
+    font-size: 35px;
+    line-height: 0px;
+    color: rgb(255, 255, 255);
+}
+.cikisiptalbuton:hover{
+    background-color: rgba(43, 43, 43, 0.9);
+}
+.cikisiptalbuton:active{
+    background-color: rgb(0, 0, 0);
+}
+.cikisyapmakistiyormusunuzp{
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    left: 10%;
+    top: 20%;
+    font-size: 40px;
+    text-align: center;
+}
