@@ -17,7 +17,7 @@ class LoginController extends BaseController
                 if (!$uri) {
                     throw new Exception("MongoDB URI bulunamadı.");
                 }
-    
+
                 try {
                     $client = new Client($uri);
                 } catch (Exception $e) {
@@ -29,7 +29,7 @@ class LoginController extends BaseController
     
                 $email = $this->request->getPost('email');
                 $sifre = $this->request->getPost('sifre');
-    
+
                 if (empty($email) || empty($sifre)) {
                     throw new Exception("Tüm alanlar doldurulmalıdır.");
                 }
@@ -43,6 +43,7 @@ class LoginController extends BaseController
                 if (!$result) {
                     echo "Yanlış Email veya Şifre. <br>";
                 }
+                
                 if ($result) {
                     session()->set('email', $email);
                     session()->set('sifre', $sifre);
@@ -72,6 +73,8 @@ class LoginController extends BaseController
                 $client = new Client($uri);
                 $database = $client->selectDatabase("Kullanıcılar");
                 $collection = $database->selectCollection('KULLANICILAR');
+                $checkemail = $collection->findOne(['email' => $this->request->getPost('email')]);
+                $checktel = $collection->findOne(['tel' => $this->request->getPost('tel')]);
 
                 $userDataInsert = [
                     'name' => $this->request->getPost('name'),
@@ -81,9 +84,12 @@ class LoginController extends BaseController
                     'email' => $this->request->getPost('email'),
                     'sifre' => $this->request->getPost('sifre')
                 ];
-
-                if (empty($userDataInsert['name']) || empty($userDataInsert['surname']) || empty($userDataInsert['tel']) || empty($userDataInsert['age']) || empty($userDataInsert['email']) || empty($userDataInsert['sifre'])) {
-                    echo "Tüm Alanlar Dolu Olmalıdır. <br>";
+                if($checkemail or $checktel){
+                    session()->setFlashdata('error', 'Bu Email Adresi Veya Numara Kullanılmaktadır. Lütfen Kontrol Ediniz');
+                    return redirect()->to('/uyelik');
+                    if (empty($userDataInsert['name']) || empty($userDataInsert['surname']) || empty($userDataInsert['tel']) || empty($userDataInsert['age']) || empty($userDataInsert['email']) || empty($userDataInsert['sifre'])) {
+                            echo "Tüm Alanlar Dolu Olmalıdır. <br>";
+                    }
                 }
 
                 $result = $collection->insertOne($userDataInsert);

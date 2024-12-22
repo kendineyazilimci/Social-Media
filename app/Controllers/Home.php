@@ -7,26 +7,21 @@ class Home extends BaseController
 {
     public function index()
     {
-        // CodeIgniter oturum kütüphanesi
         $session = session();
 
-        // Header ve content view'larını birleştir
         $output = view('headerfooter/header') . view('anasayfa/homecontent');
 
-        // Oturum bilgilerini kontrol et
         if ($session->has('email')) {
             $output .= "<pre>";
             $output .= "Session Data: " . print_r($session->get(), true) . "<br>";
-            $output .= "Kullanıcı Email: " . $session->get('email') . "<br>";
+            $output .= "Hoşgeldiniz " . $session->get('email') . "<br>";
             $output .= "</pre>";
         } else {
             $output .= "<p>Oturum başlatılmamış veya sona ermiş.</p>";
         }
 
-        // Footer ve sidebar view'larını ekle
         $output .= view('headerfooter/footer') . view('headerfooter/sidebar');
 
-        // Ana sayfa görünümünü geri döndür
         return $output;
     }
     

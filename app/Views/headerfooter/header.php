@@ -4,8 +4,6 @@
         <a href="" class="logo"><img src="Logo.png" alt=""></a>
     </div>
     <div class="header-right" id="header-right">
-        <a href="">Ana Sayfa</a>
-        <a href="">Beğeniler</a>
-        <a href="">Yorumlar</a>
+        <a href="anasayfa">Ana Sayfa</a>
     </div>
 </div>

@@ -1,0 +1,52 @@
+h1
+{
+color: white;
+text-align: center;
+position: relative;
+top: 100px;
+left: 0px;
+width: 700px;
+}
+.chatcontent
+{
+background-color: white;
+}
+.chatarea
+{
+background-color: gray;
+width: 700px;
+height: 850px;
+position: relative;
+top: 0px;
+left: 630px;
+
+}
+.sendingmessages
+{
+position: relative;
+top: 710px;
+left: 0%;
+width: 79%;
+height: 10%;
+padding: 10px;
+box-sizing: border-box;
+background-color: #f1f1f1;
+border-top: 1px solid #ccc;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 20px;
+}
+.send
+{
+position: relative;
+top: 83%;
+left: 0%;
+width: 140px;
+height: 80px;
+background-color: #8b5353;
+color: white;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+font-size: 16px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
