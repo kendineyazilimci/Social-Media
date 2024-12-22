@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->match(['get','post'],'/anasayfa', [\App\Controllers\Home::class, 'index']);
 
+$routes->match(['get', 'post'], 'chat', [\App\Controllers\ChatController::class, 'MessageComponentInterface']);
 
 $routes->match(['get', 'post'], 'giris', [\App\Controllers\LoginController::class, 'giris']);
 $routes->match(['get', 'post'], 'uyelik', [\App\Controllers\LoginController::class, 'uyelik']);

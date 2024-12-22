@@ -10,6 +10,7 @@ class Home extends BaseController
         // CodeIgniter oturum kütüphanesi
         $session = session();
 
+        // Header ve content view'larını birleştir
         $output = view('headerfooter/header') . view('anasayfa/homecontent');
 
         // Oturum bilgilerini kontrol et
@@ -22,25 +23,19 @@ class Home extends BaseController
             $output .= "<p>Oturum başlatılmamış veya sona ermiş.</p>";
         }
 
+        // Footer ve sidebar view'larını ekle
         $output .= view('headerfooter/footer') . view('headerfooter/sidebar');
 
+        // Ana sayfa görünümünü geri döndür
         return $output;
     }
+    
 }
-
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ozan</title>
-    <link rel="stylesheet" href="assets/styles.css">
-</head>
 <body>
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <script>
-        function toggleSidebar() {
+<button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+<script>
+    function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         const headerRight = document.getElementById('header-right');
         const footerRight = document.getElementById('footer-right');
@@ -48,6 +43,7 @@ class Home extends BaseController
         const toggleButton = document.querySelector('.toggle-btn');
 
         sidebar.classList.toggle('open');
+        
         headerRight.classList.toggle('shifted');
         footerRight.classList.toggle('shifted');
         homecontent.classList.toggle('shifted');
