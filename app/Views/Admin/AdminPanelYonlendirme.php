@@ -9,10 +9,10 @@
 <body>
     <div class="adminyonlendirmediv">
         <p class="hangiislemiyapmakistersinizp">Hangi İşlemi Yapmak İstersiniz?</p>
-        <form action="admin/crud" method="post">
+        <form action="crud" method="post">
             <input type="submit" class="crudislemleributon" name="crudislemleributon" value="CRUD İşlemleri">
         </form>
-        <form action="admin/site" method="post">
+        <form action="site" method="post">
             <input type="submit" class="siteislemleributon" name="siteislemleributon" value="Site İşlemleri">
         </form>
     </div>

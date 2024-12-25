@@ -9,10 +9,9 @@ class UpdateUser extends Controller
 {
     public function updateuser()
     {
-        $uri = "mongodb+srv://OzanAdmin:1234@ozan.zgre1.mongodb.net/?retryWrites=true&w=majority&appName=Ozan";
+        $uri = getenv('MONGODB_URI');
         $client = new Client($uri);
-        $vt = $_POST['vt'] ?? null;
-
+        
         
         if (isset($_POST['submit2']) && $_POST['submit2'] === 'Submit2') {
             try {
@@ -44,7 +43,6 @@ class UpdateUser extends Controller
                     echo "Kullanıcı bulunamadı veya güncellenecek bir değişiklik yok.";
                 }
             } catch (Exception $e) {
-                // Hata mesajı
                 printf("Hata: %s\n", $e->getMessage());
             }
         }

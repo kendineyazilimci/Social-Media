@@ -16,7 +16,7 @@ namespace app\Views\Admin\CRUD;
         <form action="deleteuser">
             <input type="submit" class="deleteuserbuton" value="Delete User">
         </form>
-        <form action="insertuser">
+        <form action="crud/insertuser">
             <input type="submit" class="insertuserbuton" value="Insert User">
         </form>
         <form action="queryuser">    
@@ -24,6 +24,9 @@ namespace app\Views\Admin\CRUD;
         </form>
         <form action="updateuser">
             <input type="submit" class="updateuserbuton" value="Update User">
+        </form>
+        <form action="listele">
+            <input type="submit" class="kullanıcılistelebuton" value="Kullanıcıları Listele">
         </form>
     </div>
 </body>

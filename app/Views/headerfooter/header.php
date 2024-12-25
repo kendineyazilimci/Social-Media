@@ -5,5 +5,6 @@
     </div>
     <div class="header-right" id="header-right">
         <a href="anasayfa">Ana Sayfa</a>
+        <a href="admin/login" class="adminButon" name="adminButon" id="adminButon">Admin</a>
     </div>
 </div>

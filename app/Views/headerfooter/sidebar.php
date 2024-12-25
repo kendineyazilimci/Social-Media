@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="<?= base_url('assets/styles.css') ?>">
 <div class="sidebar" id="sidebar">
     <h2>Mesajlar</h2>
@@ -15,7 +14,12 @@
     echo $checkhowmanyuser . " Kişi Var. <br>";
     echo "Kime Mesaj Atmak İstediğinizi Seçiniz:";
     foreach($users as $user){
-        echo "<li>" . $user['email']. "</li>";
+        echo "<li>
+                <form action='" . base_url('chat') . "' method='post'>
+                    <input type='hidden' name='userEmail' value='" . $user['email'] . "'>
+                    <button type='submit'>" . $user['email'] . "</button>
+                </form>
+              </li>";
     }
 ?>
     </ul>

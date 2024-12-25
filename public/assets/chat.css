@@ -16,15 +16,15 @@ background-color: white;
 background-color: gray;
 width: 700px;
 height: 850px;
-position: relative;
-top: 0px;
+position: absolute;
+top: 80px;
 left: 630px;
 
 }
 .sendingmessages
 {
-position: relative;
-top: 710px;
+position: fixed;
+top: 70px;
 left: 0%;
 width: 79%;
 height: 10%;
@@ -38,7 +38,7 @@ font-size: 20px;
 .send
 {
 position: relative;
-top: 83%;
+top: 500px;
 left: 0%;
 width: 140px;
 height: 80px;

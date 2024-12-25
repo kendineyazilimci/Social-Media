@@ -12,10 +12,40 @@
 <body class="chatcontent" id="chatcontent">
     <div class="chatscreen">
         <div class="chatarea">
-            <h1>Mesajlaşma Uygulamasına Hoş Geldiniz.</h1>
-            <input type="textarea" id="sendingmessages" class="sendingmessages" placeholder="Mesajınızı Yazınız...">
-            <input type="submit" id="send" class="send" value="Gönder">
+            <form action="<?= base_url('chat/sendMessage') ?>" method="post">
+                <textarea name="message" placeholder="Mesajınızı yazın..."></textarea>
+                <input type="hidden" name="userEmail" value="<?= $userEmail ?>">
+                <button type="submit">Gönder</button>
+            </form>
+            <div id="messages">
+                <?php if (isset($messages) && !empty($messages)): ?>
+                    <?php foreach ($messages as $message): ?>
+                        <p><strong><?= $message['gonderen'] ?>:</strong> <?= $message['icerik'] ?></p>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Henüz mesaj yok.</p>
+                <?php endif; ?>
+            </div>    
         </div>    
     </div>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const headerRight = document.getElementById('header-right');
+        const footerRight = document.getElementById('footer-right');
+        const homecontent = document.getElementById('homecontent');
+        const toggleButton = document.querySelector('.toggle-btn');
+
+        sidebar.classList.toggle('open');
+        
+        headerRight.classList.toggle('shifted');
+        footerRight.classList.toggle('shifted');
+        homecontent.classList.toggle('shifted');
+
+        toggleButton.classList.toggle('open'); 
+        toggleButton.textContent = toggleButton.classList.contains('open') ? '✖' : '☰';
+    }
+</script>
 </body>
 </html>
