@@ -6,7 +6,7 @@
     <title>Delete User</title>
 </head>
 <body>
-    <form action="<?= base_url('admin/crud/manageuser') ?>" method="post">
+    <form action="<?= base_url('admin/crud/deleteuser') ?>" method="post">
         <h2>Silinecek Kullanıcı Bilgileri</h2>
 
         <p>İsim:</p>
@@ -28,7 +28,6 @@
         <input type="text" id="sifre" name="sifre"><br><br>
 
         <input type="hidden" id="action" name="action" value="list">
-        <input type="submit" name="listUsersSubmit" value="Listele" onclick="document.getElementById('action').value='list'"><br><br>
         <input type="submit" name="deleteUserSubmit" value="Sil" onclick="document.getElementById('action').value='delete'"><br><br>
     </form>
 </body>

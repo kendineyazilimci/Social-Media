@@ -13,19 +13,19 @@ namespace app\Views\Admin\CRUD;
 <body>
     <div class="CRUDyonlendirmediv">
         <p class="hangiislemiyapmakistersinizp">Hangi İşlemi Yapmak İstersiniz?</p>
-        <form action="deleteuser">
+        <form action="crud/deleteuser">
             <input type="submit" class="deleteuserbuton" value="Delete User">
         </form>
         <form action="crud/insertuser">
             <input type="submit" class="insertuserbuton" value="Insert User">
         </form>
-        <form action="queryuser">    
+        <form action="crud/queryuser">    
             <input type="submit" class="queryuserbuton" value="Query User">
         </form>
-        <form action="updateuser">
+        <form action="crud/updateuser">
             <input type="submit" class="updateuserbuton" value="Update User">
         </form>
-        <form action="listele">
+        <form action="crud/listele">
             <input type="submit" class="kullanıcılistelebuton" value="Kullanıcıları Listele">
         </form>
     </div>

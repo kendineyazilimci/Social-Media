@@ -13,8 +13,8 @@
     <div class="chatscreen">
         <div class="chatarea">
             <form action="<?= base_url('chat/sendMessage') ?>" method="post">
-                <textarea name="message" placeholder="Mesajınızı yazın..."></textarea>
-                <input type="hidden" name="userEmail" value="<?= $userEmail ?>">
+                <input type="hidden" name="recipientEmail" value="<?= $userEmail ?>"> <!-- Use hidden input for recipient email -->
+                <textarea name="message" placeholder="Mesajınızı yazın..." required></textarea>
                 <button type="submit">Gönder</button>
             </form>
             <div id="messages">

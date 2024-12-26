@@ -9,6 +9,11 @@ class InsertUserController extends Controller
 {
     public function insertUser()
     {
+        if (session()->get('email') != 'admin@admin') {
+            return redirect()->to('/anasayfa');
+        }
+
+
         if ($this->request->getMethod() === 'post') {
             try {
                 $uri = getenv('MONGODB_URI');

@@ -20,8 +20,6 @@ $routes->group('admin', function($routes){
     $routes->match(['get','post'], 'crud', [\App\Controllers\AdminController::class, 'crud']);
     $routes->match(['get','post'], 'crud/insertuser', [\App\Controllers\InsertUserController::class, 'insertUser']);
     $routes->match(['get','post'], 'crud/deleteuser', [\App\Controllers\DeleteUserController::class, 'deleteUser']);
-    $routes->match(['get','post'], 'crud/queryuser', [\App\Controllers\AdminController::class, 'crud']);
-    $routes->match(['get','post'], 'crud/updateuser', [\App\Controllers\AdminController::class, 'crud']);
-    $routes->match(['get','post'], 'crud/kullanicilistele', [\App\Controllers\AdminController::class, 'crud']);
-    $routes->match(['get','post'], 'crud/manageuser', [\App\Controllers\DeleteUserController::class, 'manageUser']);
+    $routes->match(['get','post'], 'crud/queryuser', [\App\Controllers\QueryUserController::class, 'queryUser']);
+    $routes->match(['get','post'], 'crud/updateuser', [\App\Controllers\UpdateUserController::class, 'updateUser']);
 });

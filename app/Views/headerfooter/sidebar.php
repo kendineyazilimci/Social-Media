@@ -16,7 +16,7 @@
     foreach($users as $user){
         echo "<li>
                 <form action='" . base_url('chat') . "' method='post'>
-                    <input type='hidden' name='userEmail' value='" . $user['email'] . "'>
+                    <input type='hidden' name='recipientEmail' value='" . $user['email'] . "'>
                     <button type='submit'>" . $user['email'] . "</button>
                 </form>
               </li>";
