@@ -9,7 +9,7 @@ class ChatController extends BaseController
     {
         $session = session();
         $senderUserEmail = $session->get('email');
-        $takerUserEmail = $this->request->getPost('email');
+        $takerUserEmail = $this->request->getPost('recipientEmail');
         $uri = getenv('MONGODB_URI');
         $client = new Client($uri);
         $database = $client->selectDatabase("Kullanıcılar");
@@ -17,15 +17,21 @@ class ChatController extends BaseController
 
         $messages = $collection->find([
             '$or' => [
-                ['alici' => $userEmail],
-                ['gonderen' => $userEmail]
+                [
+                    'alici' => $senderUserEmail,
+                    'gonderen' => $takerUserEmail
+                ],
+                [
+                    'alici' => $takerUserEmail,
+                    'gonderen' => $senderUserEmail
+                ]
             ]
         ])->toArray();
 
         $usersCollection = $database->selectCollection('KULLANICILAR');
         $users = $usersCollection->find()->toArray();
 
-        $output = view('headerfooter/header') . view('chat/Chat', ['messages' => $messages, 'userEmail' => $userEmail, 'users' => $users]);
+        $output = view('headerfooter/header') . view('chat/Chat', ['messages' => $messages, 'userEmail' => $takerUserEmail, 'users' => $users]);
         $output .= view('headerfooter/footer') . view('headerfooter/sidebar');
         return $output;
     }
@@ -38,8 +44,8 @@ class ChatController extends BaseController
         $database = $client->selectDatabase("Kullanıcılar");
         $collection = $database->selectCollection('MESAJLAR');
         $message = [
-            'gonderen' => $session->get('email'), // Use session to get sender email
-            'alici' => $this->request->getPost('recipientEmail'), // Get recipient email from form input
+            'gonderen' => $session->get('email'),
+            'alici' => $this->request->getPost('recipientEmail'),
             'icerik' => $this->request->getPost('message'),
         ];
         $result = $collection->insertOne($message);
