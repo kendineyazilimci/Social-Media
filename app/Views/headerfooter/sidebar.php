@@ -7,6 +7,7 @@
     $client = new MongoDB\Client($uri);
     $database = $client->selectDatabase("Kullanıcılar");
     $collection = $database->selectCollection('KULLANICILAR');
+    
 
     $checkhowmanyuser = $collection->countDocuments();
     $users = $collection->find();

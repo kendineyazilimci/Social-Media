@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->match(['get','post'],'/anasayfa', [\App\Controllers\Home::class, 'index']);
+$routes->get('/anasayfa', [\App\Controllers\Home::class, 'index']);
 
 $routes->match(['get', 'post'], 'chat', [\App\Controllers\ChatController::class, 'chat']);
 $routes->post('chat/sendMessage', [\App\Controllers\ChatController::class, 'sendMessage']);

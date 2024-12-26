@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
             <form action="<?= base_url('chat/sendMessage') ?>" method="post">
                 <input type="hidden" name="recipientEmail" value="<?= $userEmail ?>"> 
                 <textarea name="message" placeholder="Mesajınızı yazın..." required></textarea>
-                <button type="submit">Gönder</button>
+                <button type="submit" class="sendbutton">Gönder</button>
             </form>
             <div id="messages">
                 <?php if (isset($messages) && !empty($messages)): ?>

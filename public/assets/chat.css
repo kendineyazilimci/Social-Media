@@ -13,12 +13,12 @@ background-color: white;
 }
 .chatarea
 {
-background-color: gray;
+background-color: rgb(125, 125, 125);
 width: 700px;
 height: 850px;
 position: absolute;
-top: 80px;
-left: 630px;
+top: 0px;
+left: 640px;
 
 }
 .sendingmessages
@@ -42,11 +42,34 @@ top: 500px;
 left: 0%;
 width: 140px;
 height: 80px;
-background-color: #8b5353;
+background-color: #ff0000;
 color: white;
 padding: 10px 20px;
 border: none;
 cursor: pointer;
 font-size: 16px;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+textarea {
+    position: relative;
+    top: 775px; 
+    left: 10px; 
+    width: 80%; 
+    height: 60px; 
+}   
+.sendbutton{    
+    background-color: #000000;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    top: 750px;
+    left: 11px;
+    height: 60px;
+    border-radius: 10px;
 }
